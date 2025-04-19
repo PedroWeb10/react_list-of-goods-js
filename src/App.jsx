@@ -43,7 +43,7 @@ export const App = () => {
       <div className="buttons">
         <button
           type="button"
-          className={`button is-info ${!order && 'is-light'}`}
+          className={`button is-info ${order === 'alphabetical' ? '' : 'is-light'}`}
           onClick={sortAlphabetically}
         >
           Sort alphabetically
@@ -51,7 +51,7 @@ export const App = () => {
 
         <button
           type="button"
-          className={`button is-info ${!order && 'is-light'}`}
+          className={`button is-info ${order === 'length' ? '' : 'is-light'}`}
           onClick={sortByLength}
         >
           Sort by length
@@ -59,7 +59,7 @@ export const App = () => {
 
         <button
           type="button"
-          className={`button is-info ${!order && 'is-light'}`}
+          className={`button is-info ${order === 'reverse' ? '' : 'is-light'}`}
           onClick={reverseX}
         >
           Reverse
