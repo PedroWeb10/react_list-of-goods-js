@@ -17,25 +17,25 @@ export const goodsFromServer = [
 
 export const App = () => {
   const [goods, setGoods] = useState(goodsFromServer);
-  const [order, setOrder] = useState(true);
+  const [order, setOrder] = useState('default');
   const sortAlphabetically = () => {
     setGoods([...goods].sort());
-    setOrder(false);
+    setOrder('alphabetically');
   };
 
   const sortByLength = () => {
-    setGoods([...goods].sort((la, ka) => la.length - ka.length));
-    setOrder(false);
+    setGoods([...goods].sort((lado1, lado2) => lado1.length - lado2.length));
+    setOrder('length');
   };
 
   const reverseX = () => {
     setGoods([...goods].reverse());
-    setOrder(false);
+    setOrder('reverse');
   };
 
   const resetX = () => {
     setGoods([...goodsFromServer]);
-    setOrder(true);
+    setOrder('default');
   };
 
   return (
@@ -65,7 +65,7 @@ export const App = () => {
           Reverse
         </button>
 
-        {!order && (
+        {order !== 'default' && (
           <button type="button" className="button is-danger" onClick={resetX}>
             Reset
           </button>
